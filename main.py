@@ -16,7 +16,5 @@ async def read_root(request: Request):
     return templates.TemplateResponse(request=request, name="index.html", context={})
 
 
-@app.get("/patterns", response_class=HTMLResponse)
-async def patterns(request: Request):
-    return templates.TemplateResponse(request=request, name="patterns.html", context={})
+
 

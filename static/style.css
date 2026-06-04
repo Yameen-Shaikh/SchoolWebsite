@@ -70,11 +70,22 @@ img { max-width: 100%; display: block; }
 
 .header__inner {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 0.9rem 0;
-  gap: 1rem;
+  gap: 0.35rem;
 }
+
+/* center the nav row under the welcome/brand */
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+}
+
+
 
 .brand {
   display: flex;
