@@ -356,6 +356,151 @@ img { max-width: 100%; display: block; }
 .pattern__title { margin: 0 0 0.5rem; }
 .pattern__text { margin: 0; color: var(--muted); }
 
+/* Media modal (full-screen preview) */
+.media-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: none;
+  z-index: 9999;
+}
+
+.media-modal--open {
+  display: grid;
+  place-items: center;
+}
+
+.media-modal__backdrop {
+  position: absolute;
+  inset: 0;
+}
+
+.media-modal__panel {
+  position: relative;
+  width: min(980px, calc(100vw - 2rem));
+  height: min(720px, calc(100vh - 2rem));
+  background: #0b1220;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.media-modal__content {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.media-modal__content img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.media-modal__content video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.media-modal__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.activity-open {
+  appearance: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+.activity-media {
+  pointer-events: none;
+}
+
+/* Activities section */
+.section--activities {
+  background: linear-gradient(135deg, rgba(108, 92, 231, 0.10), rgba(0, 184, 148, 0.10));
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.activities-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.activity-card {
+  background: rgba(255, 255, 255, 0.80);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 25px rgba(31, 42, 68, 0.05);
+  overflow: hidden;
+}
+
+.activity-media {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.activity-media img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* If the image has important content near the top, keep it visible */
+@media (min-width: 901px) {
+  .activity-media--image img {
+    object-position: center 35%;
+  }
+}
+
+.activity-media video {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+  background: #000;
+}
+
+.activity-body {
+  padding: 1rem;
+}
+
+.activity-title {
+  margin: 0 0 0.45rem;
+  font-size: 1.1rem;
+}
+
+.activity-caption {
+  margin: 0;
+  color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .activities-grid { grid-template-columns: 1fr; }
+  .activity-media img,
+  .activity-media video { height: 220px; }
+}
+
 .chips {
   display: flex;
   flex-wrap: wrap;

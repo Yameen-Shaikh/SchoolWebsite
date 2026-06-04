@@ -78,12 +78,52 @@
   </div>
 </section>
 
+<section class="section section--activities" id="activities">
+  <div class="container">
+    <h3 class="section__title">School Activities</h3>
+    <p class="page-lead">
+      Moments of joy, creativity, and learning together—picnics, celebrations, and fun days
+      that help children feel confident and connected.
+    </p>
 
+    <div class="activities-grid" role="list">
+      <article class="activity-card" role="listitem">
+        <button class="activity-open" type="button" data-activity-media="image" aria-label="Open Colour activity media">
+          <div class="activity-media activity-media--image">
+            <img src="{{ url_for('static', path='/images/pic1.webp') }}" alt="Colour activity" />
+          </div>
+        </button>
+        <div class="activity-body">
+          <h4 class="activity-title">Colour activity</h4>
+          <p class="activity-caption">
+            We provide multiple fun activities that help kids explore colours, express creativity,
+            and feel welcome while learning—every child gets a bright new experience.
+          </p>
+        </div>
+      </article>
+
+
+      <article class="activity-card" role="listitem">
+        <button class="activity-open" type="button" data-activity-media="video" data-video-src="{{ url_for('static', path='/images/vid.mp4') }}" aria-label="Open Picnic & Fun Day video">
+          <div class="activity-media activity-media--video">
+            <video controls preload="metadata" poster="{{ url_for('static', path='/images/bg2.jpg') }}" aria-label="School activity video">
+              <source src="{{ url_for('static', path='/images/vid.mp4') }}" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </button>
+        <div class="activity-body">
+          <h4 class="activity-title">Exam preparation & Fun Day</h4>
+          <p class="activity-caption">
+            A joyful time with our children—laughing, learning through play, and building
+            friendly memories.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
 
 {% endblock %}
-
-
-
-
-
 
