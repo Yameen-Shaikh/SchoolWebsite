@@ -106,7 +106,7 @@
       <article class="activity-card" role="listitem">
         <button class="activity-open" type="button" data-activity-media="video" data-video-src="{{ url_for('static', path='/images/vid.mp4') }}" aria-label="Open Picnic & Fun Day video">
           <div class="activity-media activity-media--video">
-            <video controls preload="metadata" poster="{{ url_for('static', path='/images/bg2.jpg') }}" aria-label="School activity video">
+            <video controls preload="metadata"  aria-label="School activity video">
               <source src="{{ url_for('static', path='/images/vid.mp4') }}" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
@@ -149,6 +149,62 @@
   </div>
 </section>
 
+<section class="section section--benefits" id="benefits">
+  <div class="container">
+    <h3 class="section__title">Benefits of Learning at AYK</h3>
+    <p class="page-lead">
+      A warm, safe, and joyful learning space where children build confidence through play, routine, and friendly guidance.
+    </p>
+
+    <div class="benefits-grid" aria-label="Benefits">
+      <article class="benefit-card">
+        <div class="benefit-media">
+          <img src="/static/images/card.jpg" alt="Play and creativity" />
+        </div>
+        <div class="benefit-body">
+          <h4 class="benefit-title">Play-based learning</h4>
+          <p class="benefit-text">Hands-on activities that help kids learn naturally and enjoy every day.</p>
+        </div>
+      </article>
+
+      <article class="benefit-card">
+        <div class="benefit-media">
+          <img src="/static/images/card1.webp" alt="Kids playing together" />
+
+        </div>
+        <div class="benefit-body">
+          <h4 class="benefit-title">Confidence through routines</h4>
+          <p class="benefit-text">Clear schedules and kind support that help children feel secure and ready to learn.</p>
+        </div>
+      </article>
+
+      <article class="benefit-card">
+        <div class="benefit-media">
+          <img src="/static/images/bg2.jpg" alt="Safe and nurturing environment" />
+        </div>
+        <div class="benefit-body">
+          <h4 class="benefit-title">Safe, caring environment</h4>
+          <p class="benefit-text">A nurturing atmosphere where every child is respected, supported, and encouraged.</p>
+        </div>
+      </article>
+
+      <article class="benefit-card">
+        <div class="benefit-media">
+          <img src="/static/images/card3.avif" alt="Positive learning habits" />
+        </div>
+        <div class="benefit-body">
+          <h4 class="benefit-title">Kind learning habits</h4>
+          <p class="benefit-text">Social and emotional growth through sharing, turn-taking, and gentle guidance.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
 {% endblock %}
+
+
+
 
 
