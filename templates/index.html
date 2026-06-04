@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+
+{% block title %}Home | AYK{% endblock %}
+
+{% block content %}
+<section class="hero hero--bg" aria-label="School introduction">
+  <div class="hero--bg__image" aria-hidden="true">
+    <img src="{{ url_for('static', path='/images/bg1.jpg') }}" alt="" />
+  </div>
+
+  <div class="hero--bg__overlay" aria-hidden="true"></div>
+
+  <div class="container">
+    <div class="hero__grid hero__grid--bg">
+      <div class="hero__copy hero__copy--center">
+        <h2 class="hero__title hero__title--center">Alif Young Kids (AYK)</h2>
+        <p class="hero__subtitle hero__subtitle--bg">
+          A caring pre-school and kindergarten community—play-based learning that builds confidence
+          through clear routines and joyful practice.
+        </p>
+        <div class="hero__actions hero__actions--center">
+          <a class="btn btn--primary" href="/patterns">Explore Patterns</a>
+          <a class="btn btn--ghost" href="#standards">Our Standards</a>
+        </div>
+
+
+      <div class="hero__focus hero__focus--bg" aria-label="Quick school snapshot">
+        <div class="hero__card hero__card--glass">
+          <h3 class="card-title">Who we welcome</h3>
+          <p class="lead" style="margin-top:0.3rem;">
+            Play Group to SR KG • from first curious steps to confident handwriting.
+          </p>
+          <div class="chips" aria-label="School qualities">
+            <span class="chip">Good environment</span>
+            <span class="chip">Safe & nurturing</span>
+            <span class="chip">Small daily practice</span>
+            <span class="chip">Positive learning habits</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="standards">
+  <div class="container">
+    <h3 class="section__title">Pre-School to SR KG (Play-based)</h3>
+    <p class="page-lead">
+      Our day is designed for young learners—gentle guidance, engaging activities, and a
+      classroom feel that helps children feel safe, curious, and ready to learn.
+    </p>
+
+    <div class="cards cards--2" aria-label="School offerings">
+      <article class="card">
+        <div class="card__icon">🏫</div>
+        <h4 class="card__title">A good learning environment</h4>
+        <p class="card__text">Calm spaces, friendly routines, and learning that feels welcoming.</p>
+      </article>
+
+      <article class="card">
+        <div class="card__icon">🧸</div>
+        <h4 class="card__title">Play Group to SR KG</h4>
+        <p class="card__text">Age-appropriate activities that grow confidence step-by-step.</p>
+      </article>
+
+      <article class="card">
+        <div class="card__icon">🌈</div>
+        <h4 class="card__title">Social & emotional learning</h4>
+        <p class="card__text">Sharing, turn-taking, and building a positive classroom attitude.</p>
+      </article>
+
+      <article class="card">
+        <div class="card__icon">✍️</div>
+        <h4 class="card__title">Handwriting confidence</h4>
+        <p class="card__text">Short, friendly practice that supports direction and control.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="routine">
+  <div class="container">
+    <h3 class="section__title">Our classroom routine</h3>
+    <p class="page-lead">
+      Three simple steps that keep lessons consistent and help children learn with confidence.
+    </p>
+
+    <div class="routine">
+      <article class="step">
+        <div class="step__num">1</div>
+        <div>
+          <h4 class="step__title">Warm-up tracing</h4>
+          <p class="step__text">Move slowly over the line so children build direction and control.</p>
+        </div>
+      </article>
+
+      <article class="step">
+        <div class="step__num">2</div>
+        <div>
+          <h4 class="step__title">Guided copying</h4>
+          <p class="step__text">Copy a few lines at a time—celebrate effort, not speed.</p>
+        </div>
+      </article>
+
+      <article class="step">
+        <div class="step__num">3</div>
+        <div>
+          <h4 class="step__title">Independent repetition</h4>
+          <p class="step__text">Repeat for smoother hand movement and lasting confidence.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="callout">
+      <h3 class="callout__title">Teacher Tip</h3>
+      <p class="callout__text">
+        Demonstrate slowly → trace together → copy independently. Use kind encouragement so
+        every child feels proud of progress.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="learn">
+  <div class="container">
+    <h3 class="section__title">What you’ll practice</h3>
+    <p class="page-lead">Simple, teacher-friendly pattern learning that fits short daily sessions.</p>
+
+    <div class="cards">
+      <article class="card">
+        <div class="card__icon">✎</div>
+        <h4 class="card__title">Straight lines</h4>
+        <p class="card__text">Steady direction, spacing, and confidence.</p>
+      </article>
+
+      <article class="card">
+        <div class="card__icon">⤴︎</div>
+        <h4 class="card__title">Curves</h4>
+        <p class="card__text">Smooth turning and gentle control.</p>
+      </article>
+
+      <article class="card">
+        <div class="card__icon">🧩</div>
+        <h4 class="card__title">Mix & match</h4>
+        <p class="card__text">Combine shapes for early letter readiness.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+
+
+
+
+
+

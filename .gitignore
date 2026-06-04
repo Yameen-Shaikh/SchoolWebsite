@@ -1,0 +1,11 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+TODO.md
+
+# Ignore Python virtual environments
+venv/
+.venv/
+env/
