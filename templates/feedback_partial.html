@@ -1,0 +1,26 @@
+<section class="section section--feedback" id="feedback">
+  <div class="container">
+    <h3 class="section__title">Feedback</h3>
+    <p class="page-lead">
+      We’d love to hear from you. Watch this short video from our school community.
+    </p>
+
+    <div class="feedback-video" role="group" aria-label="Feedback video">
+      <div class="feedback-video__thumb" aria-hidden="true">
+        <video
+          class="feedback-video__player"
+          preload="metadata"
+          muted
+          playsinline
+          controls
+          aria-label="Feedback video"
+        >
+          <source src="{{ url_for('static', path='/images/feedback.mp4') }}" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+    </div>
+  </div>
+</section>
+
