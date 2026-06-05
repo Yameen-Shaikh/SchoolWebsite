@@ -16,7 +16,11 @@
       </div>
 
       <nav class="nav" aria-label="Primary navigation">
-        <a class="nav__link" href="/">Home</a>
+        <a class="nav__link" href="/" data-nav="home">Home</a>
+        <a class="nav__link" href="/#standards" data-nav="standards">Our Standards</a>
+        <a class="nav__link" href="/#activities" data-nav="activities">Activities</a>
+        <a class="nav__link" href="/#benefits" data-nav="benefits">Benefits</a>
+        <span class="nav-underline" aria-hidden="true"></span>
       </nav>
     </div>
   </header>
@@ -98,6 +102,8 @@
       });
     })();
   </script>
+
+  <script src="{{ url_for('static', path='/script.js') }}"></script>
 
   <footer class="site-footer">
     <div class="container footer__inner">

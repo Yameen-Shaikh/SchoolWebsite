@@ -60,8 +60,10 @@ img { max-width: 100%; display: block; }
 }
 
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 10;
   backdrop-filter: blur(10px);
   background: rgba(246, 247, 255, 0.75);
@@ -79,11 +81,27 @@ img { max-width: 100%; display: block; }
 
 /* center the nav row under the welcome/brand */
 .nav {
+  position: relative;
   display: flex;
   justify-content: center;
   gap: 0.6rem;
   width: 100%;
 }
+
+/* Navbar underline that follows the active tab */
+.nav-underline {
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  border-radius: 999px;
+  z-index: 1;
+  transition: transform 180ms ease, width 180ms ease;
+  transform: translateX(0);
+}
+
 
 
 
@@ -123,16 +141,19 @@ img { max-width: 100%; display: block; }
   color: var(--text);
   padding: 0.55rem 0.85rem;
   border-radius: 999px;
-  border: 1px solid transparent;
+  border: 0;
 }
 
 .nav__link:hover {
-  border-color: var(--border);
-  background: rgba(255, 255, 255, 0.6);
+  border: 0;
+  border-color: transparent;
+  background: transparent;
 }
 
+
+
 .site-main {
-  padding: 1.2rem 0 2.5rem;
+  padding: 5.2rem 0 2.5rem;
 }
 
 .site-footer {
