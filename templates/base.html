@@ -10,15 +10,17 @@
 
   <header class="site-header">
     <div class="container header__inner">
-      <div class="brand" aria-label="AYK brand">
-          <div class="brand__name">Welcome</div>
-      </div>
-
       <nav class="nav" aria-label="Primary navigation">
-        <a class="nav__link" href="/" data-nav="home">Home</a>
-        <a class="nav__link" href="/#standards" data-nav="standards">Our Standards</a>
-        <a class="nav__link" href="/#activities" data-nav="activities">Activities</a>
-        <a class="nav__link" href="/#benefits" data-nav="benefits">Benefits</a>
+        <div class="brand" aria-label="AYK brand">
+          <img src="{{ url_for('static', path='/images/logo.png') }}" alt="AYK Logo" class="brand__logo">
+        </div>
+
+        <div class="nav__links">
+          <a class="nav__link" href="/" data-nav="home">Home</a>
+          <a class="nav__link" href="/#standards" data-nav="standards">Our Standards</a>
+          <a class="nav__link" href="/#activities" data-nav="activities">Activities</a>
+          <a class="nav__link" href="/#benefits" data-nav="benefits">Benefits</a>
+        </div>
         <span class="nav-underline" aria-hidden="true"></span>
       </nav>
     </div>
@@ -36,73 +38,8 @@
     </div>
   </div>
 
-  <script>
-    (function () {
-      const modal = document.querySelector('.media-modal');
-      const content = document.getElementById('media-modal-content');
-      const closeBtn = modal?.querySelector('.media-modal__close');
-
-      function openMedia({ type, poster, src }) {
-        if (!modal || !content) return;
-
-        content.innerHTML = '';
-
-        if (type === 'image') {
-          const img = document.createElement('img');
-          img.src = src;
-          img.alt = 'Activity preview';
-          content.appendChild(img);
-        } else if (type === 'video') {
-          const video = document.createElement('video');
-          video.controls = true;
-          video.playsInline = true;
-          video.poster = poster || '';
-
-          const source = document.createElement('source');
-          source.src = src;
-          source.type = 'video/mp4';
-
-          video.appendChild(source);
-          content.appendChild(video);
-        }
-
-        modal.setAttribute('aria-hidden', 'false');
-        modal.classList.add('media-modal--open');
-      }
-
-      function closeMedia() {
-        if (!modal || !content) return;
-        modal.setAttribute('aria-hidden', 'true');
-        modal.classList.remove('media-modal--open');
-        content.innerHTML = '';
-      }
-
-      document.addEventListener('click', (e) => {
-        const btn = e.target.closest && e.target.closest('.activity-open');
-        if (btn) {
-          const type = btn.getAttribute('data-activity-media');
-          if (type === 'image') {
-            const img = btn.querySelector('img');
-            openMedia({ type: 'image', src: img ? img.src : '' });
-          }
-          if (type === 'video') {
-            const src = btn.getAttribute('data-video-src');
-            openMedia({ type: 'video', poster: '{{ url_for("static", path="/images/bg2.jpg") }}', src });
-          }
-        }
-
-        if (e.target?.dataset?.modalClose === 'true') closeMedia();
-        if (e.target === closeBtn) closeMedia();
-      });
-
-      closeBtn?.addEventListener('click', closeMedia);
-      modal?.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeMedia();
-      });
-    })();
-  </script>
-
   <script src="{{ url_for('static', path='/script.js') }}"></script>
+
 
   <footer class="site-footer">
     <div class="container footer__inner">

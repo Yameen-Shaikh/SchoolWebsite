@@ -89,3 +89,70 @@ if (copyBtn) {
   });
 })();
 
+(function () {
+  const modal = document.querySelector('.media-modal');
+  const content = document.getElementById('media-modal-content');
+  const closeBtn = modal?.querySelector('.media-modal__close');
+
+  if (!modal || !content) return;
+
+  function openMedia({ type, poster, src }) {
+    if (!modal || !content) return;
+
+    content.innerHTML = '';
+
+    if (type === 'image') {
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = 'Activity preview';
+      content.appendChild(img);
+    } else if (type === 'video') {
+      const video = document.createElement('video');
+      video.controls = true;
+      video.playsInline = true;
+      video.poster = poster || '';
+
+      const source = document.createElement('source');
+      source.src = src;
+      source.type = 'video/mp4';
+
+      video.appendChild(source);
+      content.appendChild(video);
+    }
+
+    modal.setAttribute('aria-hidden', 'false');
+    modal.classList.add('media-modal--open');
+  }
+
+  function closeMedia() {
+    if (!modal || !content) return;
+    modal.setAttribute('aria-hidden', 'true');
+    modal.classList.remove('media-modal--open');
+    content.innerHTML = '';
+  }
+
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest && e.target.closest('.activity-open');
+    if (btn) {
+      const type = btn.getAttribute('data-activity-media');
+      if (type === 'image') {
+        const img = btn.querySelector('img');
+        openMedia({ type: 'image', src: img ? img.src : '' });
+      }
+      if (type === 'video') {
+        const src = btn.getAttribute('data-video-src');
+        openMedia({ type: 'video', poster: '/static/images/bg2.jpg', src });
+      }
+    }
+
+    if (e.target?.dataset?.modalClose === 'true') closeMedia();
+    if (e.target === closeBtn) closeMedia();
+  });
+
+  closeBtn?.addEventListener('click', closeMedia);
+  modal?.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMedia();
+  });
+})();
+
+

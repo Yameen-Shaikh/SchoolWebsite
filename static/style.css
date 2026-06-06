@@ -72,9 +72,8 @@ img { max-width: 100%; display: block; }
 
 .header__inner {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   padding: 0.9rem 0;
   gap: 0.35rem;
 }
@@ -82,10 +81,10 @@ img { max-width: 100%; display: block; }
 .nav {
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   gap: 0.6rem;
   width: 100%;
-
 }
 
 /* Navbar underline that follows the active tab */
@@ -155,7 +154,7 @@ img { max-width: 100%; display: block; }
 
 
 .site-main {
-  padding: 5.2rem 0 2.5rem;
+  padding: 7.5rem 0 2.5rem;
 }
 
 .site-footer {
@@ -874,3 +873,16 @@ img { max-width: 100%; display: block; }
 }
 
 
+
+.nav__links {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.brand__logo {
+  height: 80px;
+  width: auto;
+  display: block;
+  margin-left: -1rem; /* Shift to the very edge of the container */
+  padding: 0.15rem 0 0 0.1rem; /* Add some padding to prevent clipping */
+}
