@@ -25,15 +25,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const linkRect = activeLink.getBoundingClientRect();
     const navRect = navContainer.getBoundingClientRect();
     
-    // Position underline relative to the nav container
     underline.style.width = `${linkRect.width}px`;
     underline.style.transform = `translateX(${linkRect.left - navRect.left}px)`;
   }
 
-  // Use IntersectionObserver for "Live" section tracking
   const navObserverOptions = {
-    threshold: 0.4, // Section is active when 40% is visible
-    rootMargin: "-80px 0px -20% 0px" // Offset for navbar height
+    threshold: 0.4,
+    rootMargin: "-80px 0px -20% 0px"
   };
 
   const navObserver = new IntersectionObserver((entries) => {
@@ -63,9 +61,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const targetSection = document.getElementById(id) || document.getElementById("home");
         
         if (targetSection) {
-          // Scroll to the section title specifically if it exists, else the section top
           const title = targetSection.querySelector(".section__title, .hero__title") || targetSection;
-          const offset = 100; // Space for the fixed header
+          const offset = 100;
           const targetY = title.getBoundingClientRect().top + window.pageYOffset - offset;
           
           window.scrollTo({
@@ -73,13 +70,60 @@ document.addEventListener("DOMContentLoaded", () => {
             behavior: "smooth"
           });
           
-          // Force active state and underline move immediately on click
           navLinks.forEach(l => l.classList.remove("active"));
           link.classList.add("active");
           updateUnderline(link);
         }
       }
     });
+  });
+
+  // --- Media Modal Logic ---
+  const modal = document.querySelector(".media-modal");
+  const modalContent = document.getElementById("media-modal-content");
+  const modalClose = document.querySelector(".media-modal__close");
+  const modalBackdrop = document.querySelector(".media-modal__backdrop");
+
+  function openModal(contentHtml) {
+    if (!modal || !modalContent) return;
+    modalContent.innerHTML = contentHtml;
+    modal.classList.add("media-modal--open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden"; // Prevent scroll
+  }
+
+  function closeModal() {
+    if (!modal) return;
+    modal.classList.remove("media-modal--open");
+    modal.setAttribute("aria-hidden", "true");
+    modalContent.innerHTML = "";
+    document.body.style.overflow = "";
+  }
+
+  document.querySelectorAll(".activity-open").forEach(button => {
+    button.addEventListener("click", () => {
+      const mediaType = button.getAttribute("data-activity-media");
+      let content = "";
+
+      if (mediaType === "video") {
+        const videoSrc = button.getAttribute("data-video-src");
+        content = `<video controls autoplay class="modal-video"><source src="${videoSrc}" type="video/mp4"></video>`;
+      } else {
+        const img = button.querySelector("img");
+        if (img) {
+          content = `<img src="${img.src}" alt="${img.alt}" class="modal-image">`;
+        }
+      }
+      openModal(content);
+    });
+  });
+
+  if (modalClose) modalClose.addEventListener("click", closeModal);
+  if (modalBackdrop) modalBackdrop.addEventListener("click", closeModal);
+  
+  // Close on Escape key
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal();
   });
 
   // Re-calculate on resize

@@ -96,7 +96,7 @@ img { max-width: 100%; display: block; }
   bottom: 0;
   height: 4px;
   width: 0;
-  background: linear-gradient(90deg, var(--primary), var(--accent));
+  pointer-events: none; background: linear-gradient(90deg, var(--primary), var(--accent));
   border-radius: 999px;
   z-index: 1001;
   transition: transform 180ms ease, width 180ms ease;
@@ -452,7 +452,7 @@ img { max-width: 100%; display: block; }
 }
 
 .activity-media {
-  pointer-events: none;
+  pointer-events: auto;
 }
 
 /* Feedback section */
@@ -941,7 +941,7 @@ img { max-width: 100%; display: block; }
   z-index: -1;
   filter: blur(80px);
   opacity: 0.4;
-  pointer-events: none;
+  pointer-events: auto;
 }
 
 .hero::before {
@@ -1044,7 +1044,7 @@ img { max-width: 100%; display: block; }
   background: linear-gradient(to top, rgba(108, 92, 231, 0.3), transparent);
   opacity: 0;
   transition: opacity 0.4s ease;
-  pointer-events: none;
+  pointer-events: auto;
 }
 
 .activity-card:hover .activity-media::after {
@@ -1232,7 +1232,7 @@ body {
   background-image: radial-gradient(rgba(152, 136, 100, 0.1) 1px, transparent 1px);
   background-size: 20px 20px;
   opacity: 0.5;
-  pointer-events: none;
+  pointer-events: auto;
 }
 
 .section--benefits {
